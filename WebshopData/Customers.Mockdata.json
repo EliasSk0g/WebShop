@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Stefan",
+    "LastName": "Skog",
+    "receipt": ""
+  },
+  {
+    "Id": 2,
+    "FirstName": "Elias",
+    "LastName": "Skog",
+    "receipt": ""
+  },
+  {
+    "Id": 3,
+    "FirstName": "Matilda",
+    "LastName": "Sammeli",
+    "receipt": ";101;102"
+  },
+  {
+    "Id": 4,
+    "FirstName": "Jesper",
+    "LastName": "Skog",
+    "receipt": ""
+  },
+  {
+    "Id": 5,
+    "FirstName": "Carina",
+    "LastName": "Skog",
+    "receipt": ";103;101;102"
+  }
+]

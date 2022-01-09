@@ -1,0 +1,37 @@
+﻿@page
+@model WebShop.Pages.CartModel
+@using WebShop.DTO;
+@{
+}
+<table>
+    @{double summa = 0;}
+    @foreach (var item in CartModel.ShoppingCartItem)
+    {
+
+        summa += item.Price;
+        <div class="card" style="width: 20vw;">
+            <form asp-page-handler="CartRemove">
+                
+                <div class="card-body">
+                    <h5 class="card-title">@item.Brand</h5>
+                    <h6 class="card-title">@item.ProdId</h6>
+                    <h5 class="card-title">Price: $@item.Price</h5>
+                    <input type="submit" asp-for="toRemove" value="Remove from cart" />
+                    <div class="card-body">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    }
+
+    <div class="card" style="width: auto;">
+        @*<p type="search" asp-for="summa"> @Model.summa</p>*@
+        <form asp-page-handler="AddReceipt">
+            <p>Total sum: $@summa</p>
+            <input class="form-control me-2" type="search" asp-for="ReceiptUser" placeholder="Enter Costumer Id">
+            <button class="btn btn-outline-success" type="submit">Purchase</button>
+        </form>
+    </div>
+</table>

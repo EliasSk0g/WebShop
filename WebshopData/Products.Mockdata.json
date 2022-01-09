@@ -1,0 +1,22 @@
+[
+  {
+    "productid": 101,
+    "brand": "Iphone 10",
+    "price":  100
+
+
+  },
+  {
+    "productid": 102,
+    "brand": "Iphone 11",
+    "price": 200
+
+
+  },
+  {
+    "productid": 103,
+    "brand": "Iphone 12",
+    "price": 300
+
+  }
+]

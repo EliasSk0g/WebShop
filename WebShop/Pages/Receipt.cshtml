@@ -1,0 +1,44 @@
+﻿@page
+@model WebShop.Pages.ReceiptModel
+@using WebShop.DTO
+@{
+}
+@{double summa = 0; }
+<div class="container-fluid">
+    <form asp-page-handler="Search">
+        <input class="form-control me-2" type="search" asp-for="SearchTerm1" placeholder="Enter Customer Name">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
+<table>
+    @foreach (var item in @Model.Customers)
+    {
+        summa = 0;
+        <div class="card" style="width: auto;">
+            <form asp-page-handler="CartRemove">
+                <div class="card-body">
+                    <h5 class="card-title">@item.FirstName</h5>
+                    <h5 class="card-title">@item.LastName</h5>
+                    <h6 class="card-title">@item.Id</h6>
+                    @{string[] arr = item.receipt.Split(";");}
+                    @for (int i = 1; i < arr.Length; i++)
+                    {
+
+                            ProductsDTO product = Model._dataaccess.GetProductsById(Convert.ToInt32(arr[i]));
+                            <h6 class="card-title">@product.Brand</h6>
+                            summa += product.Price;
+
+                        
+
+
+
+                    }
+                    <p>Total sum of all items: $@summa</p>
+                    
+                    <div class="card-body">
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</table>

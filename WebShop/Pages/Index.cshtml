@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+    <form asp-page-handler="Search" class="d-flex">
+        <input class="form-control me-2" type="search" asp-for="SearchTerm" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
+<div class="card-deck">
+
+    @foreach (var item in Model.products)
+    {
+
+        <div class="card" style="width: auto;">
+            <form asp-page-handler="CartAdd">
+                
+                <div class="card-body">
+                    <h5 class="card-title">@item.Brand</h5>
+                    <h6 class="card-title">@item.ProdId</h6>
+                    <h5 class="card-title">Price: $@item.Price</h5>
+
+                    <input type="hidden" name="item_name" value="@item.Brand" />
+                    <input type="hidden" name="item_itemid" value="@item.ProdId" />
+                    <input type="hidden" name="item_price" value="@item.Price" />
+
+                    <input type="submit" value="Add to cart" />
+                </div>
+            </form>
+        </div>
+    }
+</div>
+
